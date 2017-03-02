@@ -349,8 +349,8 @@ class CI_Session {
 		}
 		else
 		{
-			$bits_per_character = (int) ini_get('session.sid_bits_per_character');
-			$sid_length         = (int) ini_get('session.sid_length');
+			$bits_per_character = (int) ini_get('session.sid_bits_per_character') ?? 5;
+			$sid_length         = (int) ini_get('session.sid_length') ?? 32;
 			if (($bits = $sid_length * $bits_per_character) < 160)
 			{
 				// Add as many more characters as necessary to reach at least 160 bits
